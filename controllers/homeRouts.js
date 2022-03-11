@@ -27,8 +27,8 @@ router.get('/', async (req, res) => {
         // Pass posts data and session flag into template
     res.render('homepage', { 
         posts,
-        loggedIn: 
-        req.session.loggedIn
+        logged_in: 
+        req.session.logged_in
       });
     // res.status(200).json(posts);
     } catch (err) {
@@ -69,8 +69,8 @@ router.get('/post/:id', async (req, res) => {
         // Pass postss data and session flag into template
     res.render('single-post', { 
         post,
-        loggedIn: 
-        req.session.loggedIn
+        logged_in: 
+        req.session.logged_in
       });
     // res.status(200).json(post);
     } catch (err) {
@@ -113,12 +113,12 @@ router.get('/post-comments/:id', async (req, res) => {
         const post = postData.get({ plain: true });
 
         // Pass projects data and session flag into template
-    // res.render('post-commrnts', { 
-    //     post,
-    //     loggedIn: 
-    //     req.session.loggedIn
-    //   });
-    res.status(200).json(post);
+    res.render('post-commrnts', { 
+        post,
+        logged_in: 
+        req.session.logged_in
+      });
+    // res.status(200).json(post);
     } catch (err) {
         res.status(500).json(err);
       }

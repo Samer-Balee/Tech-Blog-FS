@@ -35,7 +35,7 @@ router.get('/', withAuth, async (req, res) => {
         // Pass projects data and session flag into template
     res.render('dashboard', { 
         posts,
-        loggedIn: true
+        logged_in: true
         });
 
     // res.status(200).json(posts);
@@ -81,9 +81,9 @@ router.get('/edit/:id', withAuth, async (req, res) => {
         const post = postData.get({ plain: true });
 
         // Pass posts data and session flag into template
-    res.render('single-post', { 
+    res.render('edit-post', { 
         post,
-        loggedIn: true
+        logged_in: true
       });
     // res.status(200).json(post);
     } catch (err) {
