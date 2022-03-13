@@ -1,6 +1,6 @@
 module.exports = {
     format_date: (date) => {
-      // Format date as MM/DD/YYYY
-      return date.toLocaleDateString();
+      // Format date as DD/MM/YYYY
+      return `${new Date(date).getDate()}/${new Date(date).getMonth() + 1}/${new Date(date).getFullYear()}`;
     },
 }; 
