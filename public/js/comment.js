@@ -1,4 +1,4 @@
-
+const postId = document.querySelector('input[name="post-id"]').value;
 async function commentFormHandler(event) {
     event.preventDefault();
   

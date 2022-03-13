@@ -1,30 +1,33 @@
 const router = require('express').Router();
-const { Comment } = require('../../models');
+const { Comment , User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
-  const commentsData = await Comment.findAll({})
-     res.status(200).json(commentsData);
+  const commentsData = await Comment.findAll({
+    include: [User],
+  });
+  const comments = commentsData.map((comment) => comment.get({ plain: true }));
+  res.render('single-post', {comments, logged_in: req.session.logged_in});
     }catch(err) {
           console.log(err);
           res.status(500).json(err);
       }
 });
 
-router.get('/:id', async (req, res) => {
-  try {
-  const commentsData = await Comment.findAll({
-          where: {
-              id: req.params.id
-          }
-      })
-     res.status(200).json(commentsData);
-    }catch(err) {
-          console.log(err);
-          res.status(500).json(err);
-      }
-});
+// router.get('/:id', async (req, res) => {
+//   try {
+//   const commentsData = await Comment.findAll({
+//           where: {
+//               id: req.params.id
+//           }
+//       })
+//      res.status(200).json(commentsData);
+//     }catch(err) {
+//           console.log(err);
+//           res.status(500).json(err);
+//       }
+// });
 
 router.post('/', withAuth, async (req, res) => {
     try {

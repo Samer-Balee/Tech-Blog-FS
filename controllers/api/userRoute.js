@@ -58,25 +58,25 @@ const { User } = require('../../models');
 // });
 
 
-router.post('/', async (req, res) => {
-    try {
-      const newUser = await User.create(
-        {
-          name: req.body.name,
-          password: req.body.password
-        });
+// router.post('/', async (req, res) => {
+//     try {
+//       const newUser = await User.create(
+//         {
+//           name: req.body.name,
+//           password: req.body.password
+//         });
   
-        req.session.save(() => {
-          req.session.user_id = newUser.id;
-          req.session.name = newUser.name;
-          req.session.logged_in = true;
+//         req.session.save(() => {
+//           req.session.user_id = newUser.id;
+//           req.session.name = newUser.name;
+//           req.session.logged_in = true;
     
-          res.json(newUser);
-        });
-    } catch (err) {
-      res.status(400).json(err);
-    }
-  });
+//           res.json(newUser);
+//         });
+//     } catch (err) {
+//       res.status(400).json(err);
+//     }
+//   });
 
   router.post('/login', async (req, res) => {
     try {
