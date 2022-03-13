@@ -32,7 +32,7 @@ router.get('/', withAuth, async (req, res) => {
         })
         const posts = postData.map(post => post.get({ plain: true }));
         console.log(posts);
-        // Pass projects data and session flag into template
+        // Pass posts data and session flag into template
     res.render('dashboard', { 
         posts,
         logged_in: true
