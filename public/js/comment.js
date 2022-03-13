@@ -1,3 +1,4 @@
+
 async function commentFormHandler(event) {
     event.preventDefault();
   
@@ -8,7 +9,9 @@ async function commentFormHandler(event) {
     ];
   
     if (commentText) {
-        const response = await fetch('/api/comments', {
+        const response = await fetch('/api/comments', 
+        {
+           
             method: 'POST',
             body: JSON.stringify({
                 post_id,
@@ -17,8 +20,9 @@ async function commentFormHandler(event) {
             headers: {
                 'Content-Type': 'application/json'
             }
+            
         });
-  
+       
         if (response.ok) {
             document.location.reload();
   
