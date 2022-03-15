@@ -20,11 +20,14 @@
    
   ## Instalation
    
-   The link app has been deployed in Herohu: [Tech-Blog-FS](https://tech-blog-fs.herokuapp.com/)
+   You can view the app deployed through Heroku using this link: [Tech-Blog-FS](https://tech-blog-fs.herokuapp.com/)
 
   ## Usage
-   
-    
+
+  - Screenshot of the home page.
+  
+   ![home-page](assets/screenshot.png)
+
   
   ## License
 
